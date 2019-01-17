@@ -42,7 +42,7 @@ interface HttpClient {
 //    @FormUrlEncoded
 //    fun login(@FieldMap map: Map<String, String>): Observable<BaseBean<LoginBean>>
     @POST("/api/authenticate")
-    fun login(@Body requestBody: RequestBody): Observable<BaseBean<LoginBean>>
+    fun login(@Body map: Map<String,String>): Observable<BaseBean<LoginBean>>
 
     /**
      * 版本更新

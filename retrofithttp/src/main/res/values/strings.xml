@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">http</string>
+    <string name="login_app_name">http</string>
     <string name="str_loading">正在加载...</string>
     <string name="str_net_warning">网络不给力，请点击屏幕重试</string>
 </resources>

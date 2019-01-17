@@ -3,7 +3,7 @@
     package="com.hongj.login">
 
     <uses-permission android:name="android.permission.INTERNET"/>
-    <application android:theme="@style/AppTheme">
+    <application>
         <activity android:name=".view.LoginActivity"></activity>
     </application>
 

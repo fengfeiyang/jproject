@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
+import org.jetbrains.annotations.NotNull
 
 /**
  * Created by hongj on 2018/8/20 0020.
@@ -14,7 +15,7 @@ import androidx.lifecycle.ViewModel
 
 abstract class BaseViewModel(var context: Context) : IBaseViewModel, ViewModel() {
 
-    lateinit var titleName: ObservableField<String>
+    @NotNull lateinit var titleName: ObservableField<String>
     /**
      * 跳转页面
      *
