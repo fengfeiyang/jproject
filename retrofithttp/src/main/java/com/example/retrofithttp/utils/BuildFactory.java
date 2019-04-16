@@ -25,12 +25,12 @@ public class BuildFactory {
         return instance;
     }
 
-    public <T> T create (Class<T> a, String type) {
+    public <T> T create (Class<T> serviceClazz, String baseUrl) {
 
         if (gankHttps == null) {
             synchronized (BuildFactory.class) {
                 if (gankHttps == null) {
-                    gankHttps = HttpUtils.getInstance().getBuilder(type).build().create(a);
+                    gankHttps = HttpUtils.getInstance().getBuilder(baseUrl).build().create(serviceClazz);
                 }
             }
         }

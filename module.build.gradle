@@ -14,16 +14,16 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
+        kapt {
+            arguments {
+                arg("moduleName", project.getName())
             }
         }
+
 
     }
 
@@ -47,18 +47,26 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "Boolean", "ENVIRONMENT", "false"
+
+        }
         release {
-            minifyEnabled false
+            //混淆
+            minifyEnabled true
+            //Zipalign优化
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "Boolean", "ENVIRONMENT", "true"
         }
     }
-
 
 }
 
 dependencies {
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':base')
     kapt 'com.alibaba:arouter-compiler:1.1.4'
-    
+
 }
