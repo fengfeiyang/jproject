@@ -28,7 +28,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
-    implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
     // 网络请求
     api 'com.google.code.gson:gson:2.8.1'
     api('com.squareup.retrofit2:retrofit:2.3.0') {

@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <application>
         <activity android:name=".view.LoginActivity"></activity>
+        <activity android:name=".view.SetPasswordActivity"></activity>
+        <activity android:name=".view.CoustomWebviewActivity"></activity>
     </application>
 
 </manifest>

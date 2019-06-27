@@ -9,7 +9,7 @@ import com.hongj.common.base.BaseActivity
 import com.hongj.login.BR
 import com.hongj.login.R
 import com.hongj.login.bean.CheckVersionBean
-import com.hongj.login.databinding.ActivityLoginBinding
+import com.hongj.login.databinding.LoginActivityBinding
 import com.hongj.login.http.HttpClient
 import com.hongj.login.viewmodel.LoginViewModel
 
@@ -17,9 +17,9 @@ import com.hongj.login.viewmodel.LoginViewModel
  * Created by hongj on 2018/8/10 0010.
  */
 @Route(path = "/login/login")
-class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
+class LoginActivity : BaseActivity<LoginActivityBinding, LoginViewModel>() {
     override fun initContentView(savedInstanceState: Bundle?): Int {
-        return R.layout.activity_login
+        return R.layout.login_activity
     }
 
     override fun initVariableId(): Int {
@@ -32,19 +32,19 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
-////        setContentView(R.layout.activity_login)
-//        val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this, R.layout.activity_login)
+////        setContentView(R.layout.login_activity)
+//        val binding = DataBindingUtil.setContentView<ActivityLoginBinding>(this, R.layout.login_activity)
 //        val viewModel = LoginViewModel(this)
 //
 ////        binding.viewModel = viewModel
 //        initData()
 //    }
 
-
+    
     override fun initData() {
         val patams = ParamUtil.getPatams()
         patams["versionNo"] = "212"
-        HttpClient.Builder.service
+        HttpClient.service
                 .checkVersion(patams)
                 .compose(RxHelper.handleResult<CheckVersionBean>())
                 .subscribe(object : RxSubscribe<CheckVersionBean>(this) {

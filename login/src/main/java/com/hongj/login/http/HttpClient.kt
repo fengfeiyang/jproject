@@ -6,18 +6,16 @@ import com.hongj.common.Constant.Constants
 import com.hongj.login.bean.CheckVersionBean
 import com.hongj.login.bean.LoginBean
 import io.reactivex.Observable
-import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.http.*
-import java.util.*
 
 /**
  * Created by hongj on 2018/8/15 0015.
  */
 interface HttpClient {
 
-
-    object Builder {
+    //伴生对象
+    companion object Builder {
         val service: HttpClient
             get() = BuildFactory.getInstance().create(HttpClient::class.java, Constants.BASE_URL)
 
