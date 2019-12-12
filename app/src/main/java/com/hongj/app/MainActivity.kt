@@ -9,6 +9,7 @@ import android.os.Bundle
 import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import com.alibaba.android.arouter.launcher.ARouter
 import com.hongj.app.databinding.ActivityMainBinding
 import com.hongj.login.view.CoustomWebviewActivity
 
@@ -19,8 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         setCustomDensity(this,application,720)
-//        ARouter.getInstance().build("/login/login").navigation()
-        startActivity(Intent(this,CoustomWebviewActivity::class.java))
+        ARouter.getInstance().build("/login/login").navigation()
     }
 
     /**
